@@ -1,4 +1,4 @@
-import getRandomHexColor from './color';
+import { getRandomHexColor } from './helpers/color';
 
 const COLOR_FREQUENCY = 1000;
 
