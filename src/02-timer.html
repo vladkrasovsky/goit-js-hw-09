@@ -5,13 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Countdown timer</title>
     <link rel="stylesheet" href="css/common.css" />
+    <style>
+      .timer {
+        display: flex;
+        gap: 1em;
+      }
+      .timer .field {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      .timer .value {
+        font-size: 2em;
+      }
+      .timer .label {
+        text-transform: uppercase;
+      }
+    </style>
   </head>
   <body>
     <p><a href="index.html">Go back</a></p>
 
-    <input type="text" id="datetime-picker" />
-    <button type="button" data-start>Start</button>
+    <div class="timer-1"></div>
+    <div class="timer-2"></div>
 
+    <!-- 
+    <input type="text" id="datetime-picker" />
+    <button type="button" data-start disabled>Start</button>
+    
     <div class="timer">
       <div class="field">
         <span class="value" data-days>00</span>
@@ -29,8 +50,8 @@
         <span class="value" data-seconds>00</span>
         <span class="label">Seconds</span>
       </div>
-    </div>
-
+    </div> 
+-->
     <script src="js/02-timer.js" type="module"></script>
   </body>
 </html>
