@@ -1,8 +1,8 @@
 import { createPromise, onSuccess, onError } from './helpers/promise';
 
-const form = document.querySelector('.form');
+const formRef = document.querySelector('.form');
 
-form.addEventListener('submit', onFormSubmit);
+formRef.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
