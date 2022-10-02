@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Practice</title>
-    <link rel="stylesheet" href="css/common.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
     <style>
-      .movies {
+      /* .movies {
         list-style: none;
         width: 1200px;
         margin: 0 auto;
@@ -14,14 +19,14 @@
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
-      }
+      }*/
 
       .movie-production-companies {
         list-style: none;
         padding-left: 0;
       }
 
-      .movies-item {
+      /*.movies-item {
         width: 280px;
         margin: 10px;
         text-align: center;
@@ -29,15 +34,31 @@
 
       .movie-image {
         width: 260px;
-      }
+      } */
     </style>
   </head>
   <body>
-    <form class="search-form">
-      <input type="text" name="search" />
-      <button type="submit">Search</button>
-    </form>
-    <ul class="movies"></ul>
+    <nav class="navbar navbar-dark bg-dark mb-4">
+      <a class="navbar-brand" href="#">Movies Search</a>
+      <form class="form-inline flex-grow-1 search-form">
+        <input
+          class="form-control flex-grow-1 mr-sm-2"
+          type="search"
+          name="search"
+          placeholder="Ex. Batman"
+          aria-label="Search movies"
+        />
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
+    </nav>
+
+    <!-- <ul class="movies"></ul> -->
+    <div class="container">
+      <div class="row movies"></div>
+    </div>
+
     <script src="./js/practice.js" type="module"></script>
   </body>
 </html>

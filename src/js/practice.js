@@ -28,8 +28,16 @@ const refs = {
 
 const handleSearchFormSubmit = e => {
   e.preventDefault();
-  const { search } = e.currentTarget;
-  getFilmsDescriptionByQuery(search.value);
+
+  const form = e.currentTarget;
+  const query = form.elements.search.value.trim();
+
+  if (query === '') {
+    form.reset();
+    return;
+  }
+
+  getFilmsDescriptionByQuery(query);
 };
 
 refs.searchForm.addEventListener('submit', handleSearchFormSubmit);
@@ -38,11 +46,35 @@ const movieItemMarkup = item => {
   const productionCompaniesMarkup = item.production_companies
     .map(
       company =>
-        `<li class="production-companies-item-name">${company.name}</li>`
+        `<li class="btn btn-outline-secondary btn-sm mr-2 mb-2">${company.name}</li>`
     )
     .join('');
 
-  return `<li class="movies-item">
+  return `<div class="d-flex col-sm-6 col-lg-4 mb-4">
+    <div class="card">
+      <img src="${
+        BASE_POSTER_URL + item.poster_path
+      }" class="card-img-top" alt="${item.original_title}">
+      <div class="card-body">
+        <h5 class="card-title">${item.original_title}</h5>
+        <p class="card-text small">${item.overview}</p>
+        <p class="card-text">Status:
+          <span class="badge badge-secondary">${item.status}</span>
+        </p>
+        <p class="card-text">Vote average:
+          <span class="badge badge-info">${item.vote_average}</span>
+        </p>
+        <ul class="movie-production-companies">
+          ${productionCompaniesMarkup}
+        </ul>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Runtime: ${item.runtime} minutes</small>
+      </div>
+    </div>
+  </div>`;
+
+  /* return `<li class="movies-item">
       <h3 class="movie-original-title">${item.original_title}</h3>
       <img class="movie-image" src="${
         BASE_POSTER_URL + item.poster_path
@@ -55,11 +87,15 @@ const movieItemMarkup = item => {
       <ul class="movie-production-companies">
           ${productionCompaniesMarkup}
       </ul>
-  </li>`;
+  </li>`; */
 };
 
 const renderMoviesItems = items => {
-  refs.moviesList.innerHTML = items.map(movieItemMarkup).join('');
+  const markup = items.length
+    ? items.map(movieItemMarkup).join('')
+    : '<p>No results were found.</p>';
+
+  refs.moviesList.innerHTML = markup;
 };
 
 const getFilmByID = movieId =>
