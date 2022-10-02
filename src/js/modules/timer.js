@@ -74,6 +74,12 @@ class Timer {
 
   start = () => {
     this.startBtn.setAttribute('disabled', true);
+
+    if (this.dateDiff() <= 0) {
+      this.startBtn.setAttribute('disabled', true);
+      return Notify.failure('Please choose a date in the future');
+    }
+
     this.datePicker.setAttribute('disabled', true);
 
     this.intervID = setInterval(() => {
