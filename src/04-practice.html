@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <style>
+      .movies {
+        list-style: none;
+        width: 1200px;
+        margin: 0 auto;
+        padding-left: 0;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+
+      .movie-production-companies {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .movies-item {
+        width: 280px;
+        margin: 10px;
+        text-align: center;
+      }
+
+      .movie-image {
+        width: 260px;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="search-form">
+      <input type="text" name="search" />
+      <button type="submit">Search</button>
+    </form>
+    <ul class="movies"></ul>
+    <script src="./js/practice.js" type="module"></script>
+  </body>
+</html>
